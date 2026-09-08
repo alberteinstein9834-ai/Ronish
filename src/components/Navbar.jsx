@@ -1,17 +1,25 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingBag, Search, Menu, X, Gem } from "lucide-react";
-import { useCart } from "../hooks/useCart"; // Yeh hum abhi banayenge ya CartContext se lenge
+import { useCart } from "../hooks/useCart";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   
-  // Cart item count ke liye (agar CartContext use kar rahe hain)
+  // Cart item count ke liye safe check
   const { itemCount } = useCart ? useCart() : { itemCount: 0 };
 
-  
+  // Mobile search handler
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
+      setIsOpen(false);
+      setSearchQuery("");
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-borderPink shadow-sm">
@@ -61,14 +69,14 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-lightPink border-b border-borderPink px-4 pt-4 pb-6 space-y-4">
+        <div className="md:hidden bg-lightPink border-b border-borderPink px-4 pt-4 pb-6 space-y-4 shadow-lg">
           <form onSubmit={handleSearch} className="flex items-center relative mb-4">
             <input
               type="text"
               placeholder="Search jewellery..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="input-field py-2 pl-4 pr-10 text-sm w-full"
+              className="input-field py-2 pl-4 pr-10 text-sm w-full bg-white border border-borderPink rounded-lg focus:outline-none focus:border-primaryPink"
             />
             <button type="submit" className="absolute right-3 text-mutedText hover:text-primaryPink">
               <Search className="w-5 h-5" />
