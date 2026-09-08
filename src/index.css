@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Tailwind v4 ka naya import */
+@import "tailwindcss";
+
+/* Custom Colors & Fonts */
+@theme {
+  --color-primaryPink: #E8A0B8;
+  --color-lightPink: #FDF1F5;
+  --color-softPink: #F8DDE6;
+  --color-darkText: #2D2528;
+  --color-mutedText: #7A6F73;
+  --color-borderPink: #F0DDE3;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-darkText font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primaryPink text-white px-6 py-3 rounded-md hover:bg-[#d68a9f] transition-colors duration-300 font-medium;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primaryPink text-primaryPink px-6 py-3 rounded-md hover:bg-lightPink transition-colors duration-300 font-medium;
+  }
+
+  .input-field {
+    @apply w-full border border-borderPink rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primaryPink focus:border-transparent bg-white;
+  }
+}
