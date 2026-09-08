@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <Gem className="w-7 h-7 text-primaryPink" />
               <span className="font-serif text-xl font-bold tracking-wider text-darkText">
-                AURA <span className="text-primaryPink font-light">JEWELS</span>
+                RONISH <span className="text-primaryPink font-light">JEWELS</span>
               </span>
             </div>
             <p className="text-mutedText text-sm leading-relaxed">
@@ -62,7 +62,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-borderPink pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-mutedText">
-          <p>© {new Date().getFullYear()} Aura Jewels. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ronish Jewels. All rights reserved.</p>
           <p className="flex items-center gap-1 mt-2 sm:mt-0">
             Crafted with <Heart className="w-3.5 h-3.5 text-primaryPink fill-primaryPink" /> for Elegance
           </p>

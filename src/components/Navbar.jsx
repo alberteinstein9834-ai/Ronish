@@ -22,7 +22,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-2">
             <Gem className="w-8 h-8 text-primaryPink" />
             <span className="font-serif text-2xl font-bold tracking-wider text-darkText">
-              AURA <span className="text-primaryPink font-light">JEWELS</span>
+              RONISH <span className="text-primaryPink font-light">JEWELS</span>
             </span>
           </Link>
 
